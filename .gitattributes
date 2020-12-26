@@ -1,0 +1,2 @@
+*.* -linguist-detectable
+*.txt eol=crlf
