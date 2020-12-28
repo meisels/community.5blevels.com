@@ -1,0 +1,17 @@
+{
+    "levelCount": "1",
+    "levelpackCount": "1",
+    
+    "levels": {
+        "1": {
+            "name": "Evil Horrendous Level of Evil",
+            "author": "Ari Meisels"
+        }
+    },
+    "levelpacks": {
+        "1": {
+            "name": "5b",
+            "author": "Cary Huang"
+        }
+    }
+}
