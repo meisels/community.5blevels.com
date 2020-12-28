@@ -3,7 +3,7 @@
     "levelpackCount": "1",
     
     "levels": {
-        "'1'": {
+        "1": {
             "name": "Evil Horrendous Level of Evil",
             "author": "Ari Meisels"
         }
