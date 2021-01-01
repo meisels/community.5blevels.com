@@ -4,16 +4,16 @@
     
     "levels": {
         "1": {
-            "name": "Evil Horrendous Level of Evil",
+            "levelName": "Evil Horrendous Level of Evil",
             "author": "Ari Meisels",
-            "type": "levels"
+            "levelType": "levels"
         }
     },
     "levelpacks": {
         "1": {
-            "name": "5b",
+            "levelName": "5b",
             "author": "Cary Huang",
-            "type": "levelpacks"
+            "levelType": "levelpacks"
         }
     }
 }
