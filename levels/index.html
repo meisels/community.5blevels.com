@@ -18,7 +18,7 @@
                 .then(function (myJson) {
                 var game = myJson;
                 do {
-                    document.getElementById("boxes").innerHTML += "<a href='/levelpacks/" + game.levels[game.levelCount].author + "/" + game.levels[game.levelCount].name + "' target='_blank'>" + "<img src='/levels/" + game.levels[game.levelCount].author + "/" + game.levels[game.levelCount].name + "/thumbnail.png' width=auto height=90></a>&nbsp<a href='/levelpacks/" + game.levels[game.levelCount].author + "/" + game.levels[game.levelCount].name + "' target='_blank'><br>" + game.levels[game.levelCount].name + " by " + game.levels[game.levelCount].author + "</a><br>";
+                    document.getElementById("boxes").innerHTML += "<a href='/levelpacks/" + game.levels[game.levelCount].author + "/" + game.levels[game.levelCount].name + "' target='_blank'>" + "<img src='/levels/" + game.levels[game.levelCount].author + "/" + game.levels[game.levelCount].name + "/thumbnail.png' width=auto height=90></a>&nbsp<a href='/levelpacks/" + game.levels[game.levelCount].author + "/" + game.levels[game.levelCount].name + "' target='_blank'><br><b>" + game.levels[game.levelCount].name + "</b> by <b>" + game.levels[game.levelCount].author + "</b></a><br>";
                     
                     document.getElementById("boxes").innerHTML += "<p>"
                     

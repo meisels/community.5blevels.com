@@ -18,7 +18,7 @@
                 .then(function (myJson) {
                 var game = myJson;
                 do {
-                    document.getElementById("boxes").innerHTML += "<a href='/levelpacks/" + game.levelpacks[game.levelpackCount].author + "/" + game.levelpacks[game.levelpackCount].name + "' target='_blank'>" + "<img src='/levelpacks/" + game.levelpacks[game.levelpackCount].author + "/" + game.levelpacks[game.levelpackCount].name + "/thumbnail.png' width=auto height=90></a>&nbsp<a href='/levelpacks/" + game.levelpacks[game.levelpackCount].author + "/" + game.levelpacks[game.levelpackCount].name + "' target='_blank'><br>" + game.levelpacks[game.levelpackCount].name + " by " + game.levelpacks[game.levelpackCount].author + "</a><br>";
+                    document.getElementById("boxes").innerHTML += "<a href='/levelpacks/" + game.levelpacks[game.levelpackCount].author + "/" + game.levelpacks[game.levelpackCount].name + "' target='_blank'>" + "<img src='/levelpacks/" + game.levelpacks[game.levelpackCount].author + "/" + game.levelpacks[game.levelpackCount].name + "/thumbnail.png' width=auto height=90></a>&nbsp<a href='/levelpacks/" + game.levelpacks[game.levelpackCount].author + "/" + game.levelpacks[game.levelpackCount].name + "' target='_blank'><br><b>" + game.levelpacks[game.levelpackCount].name + "</b> by <b>" + game.levelpacks[game.levelpackCount].author + "</b></a><br>";
                     
                     document.getElementById("boxes").innerHTML += "<p>"
                     
