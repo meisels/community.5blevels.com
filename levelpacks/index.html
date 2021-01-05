@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Community 5b - Levelpacks</title>
+        <meta name="description" content="Explore the levelpacks by the 5b Community">
+        <meta name="keywords" content="5b, bfdia, bfdia 5b, 5blevels.com, community, 5b community, bfdia 5b community, levelpacks">
+        <link rel="icon" href="/favicon.ico">
+    </head>
+    <body>
+        <h1>Levelpacks</h1>
+        <br>
+        <div id="boxes"></div>
+        <script>
+            fetch("https://community.5blevels.com/data.json")
+                .then(function (response) {
+                return response.json();
+            })
+                .then(function (myJson) {
+                var game = myJson;
+                do {
+                    document.getElementById("boxes").innerHTML += "<a href='/levelpacks/" + game.levelpacks[game.levelpackCount].author + "/" + game.levelpacks[game.levelpackCount].name + "' target='_blank'>" + "<img src='/levelpacks/" + game.levelpacks[game.levelpackCount].author + "/" + game.levelpacks[game.levelpackCount].name + "/thumbnail.png' width=auto height=90></a>&nbsp<a href='/levelpacks/" + game.levelpacks[game.levelpackCount].author + "/" + game.levelpacks[game.levelpackCount].name + "' target='_blank'><br>" + game.levelpacks[game.levelpackCount].name + " by " + game.levelpacks[game.levelpackCount].author + "</a><br>";
+                    
+                    document.getElementById("boxes").innerHTML += "<p>"
+                    
+                    game.levelpackCount--;
+                } while (game.levelpackCount != 0);
+            });
+        </script>
+        <style>
+            * {
+                font-family: sans-serif;
+                text-align: center;
+            }
+        </style>
+    </body>
+</html>
+
+
+<script>
+    // var levelpack = document.createElement("div");
+    // var levelpackLink = document.createElement("a");
+    // var levelpackPicture = document.createElement("img");
+    // var levelpackText = document.createTextNode(game.levelpacks[game.levelpackCount].name + " by " + game.levelpacks[game.levelpackCount].author);
+    
+    // levelpack.setAttribute("id", game.levelpackCount);
+    // levelpackPicture.setAttribute("src", "/levelpacks/" + game.levelpacks[game.levelpackCount].author + "/" + game.levelpacks[game.levelpackCount].name + "/thumbnail.png");
+    // levelpackPicture.setAttribute("height", 90);
+    // levelpackPicture.setAttribute("width", "auto");
+    
+    // levelpackLink.setAttribute("href", "/levelpacks/" + game.levelpacks[game.levelpackCount].author + "/" + game.levelpacks[game.levelpackCount].name);
+    // levelpackLink.setAttribute("target", "_blank");
+    
+    // levelpack.appendChild(levelpackPicture);
+    // levelpackLink.appendChild(levelpackText);
+    // levelpack.appendChild(levelpackLink);
+                    
+    // document.getElementById("boxes").appendChild(levelpack);
+                    
+    // document.getElementById(game.levelpackCount).insertBefore(document.createElement("p"), document.getElementById(game.levelpackCount).childNodes[3]);
+</script>
