@@ -4,6 +4,7 @@
         <title>Community 5b - Levels</title>
         <meta name="description" content="Explore the levels by the 5b Community">
         <meta name="keywords" content="5b, bfdia, bfdia 5b, 5blevels.com, community, 5b community, bfdia 5b community, levels">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="https://community.5blevels.com/favicon.ico">
     </head>
     <body>
@@ -23,16 +24,16 @@
                 do {
                     document.getElementById("buttons").innerHTML += "<button onclick='downloadLevel(" + tempVar + ")'>Download <b>" + data.levels[tempVar].name + "</b> by <b>" + data.levels[tempVar].author + "</b><img id='" + tempVar + "' src='' style='display:block;margin-left:auto;margin-right:auto;'></button><br>";
                     
-                    getThumb(tempVar);
+                    getThumb(tempVar, "https://community.5blevels.com/levels/" + data.levels[tempVar].author + "/" + data.levels[tempVar].name + "/thumbnail.png");
                     
-                    function getThumb(tempVar2) {
-                        fetch("https://community.5blevels.com/levels/" + data.levels[tempVar].author + "/" + data.levels[tempVar].name + "/thumbnail.png")
+                    function getThumb(tempVar2, imageURL) {
+                        fetch(imageURL)
                             .then(function (response) {
                             return response.status;
                         })
                             .then(function (checkFile) {
                             if (checkFile == "200") {
-                                document.getElementById(tempVar2).src = "https://community.5blevels.com/levels/" + data.levels[tempVar2].author + "/" + data.levels[tempVar2].name + "/thumbnail.png";
+                                document.getElementById(tempVar2).src = imageURL;
                             } else {
                                 document.getElementById(tempVar2).src = "https://community.5blevels.com/thumbnail.png";
                                 console.log("Because the  thumbnail file wasn't found, the default thumbnail is displayed.");
@@ -68,6 +69,7 @@
                 document.body.removeChild(download);
             }
         </script>
+        
         <style>
             * {
                 text-align: center;
