@@ -22,7 +22,7 @@
                 levelCount = data.levels.levelCount;
                 var tempVar = levelCount;
                 do {
-                    document.getElementById("buttons").innerHTML += "<button onclick='downloadLevel(" + tempVar + ")'>Download <b>" + data.levels[tempVar].name + "</b> by <b>" + data.levels[tempVar].author + "</b><img id='" + tempVar + "' src='' style='display:block;margin-left:auto;margin-right:auto;'></button><br>";
+                    document.getElementById("buttons").innerHTML += "<button onclick='downloadLevel(" + tempVar + ")'>Download <b>" + data.levels[tempVar].name + "</b> by <b>" + data.levels[tempVar].author + "</b><img id='" + tempVar + "' src='' alt='" + data.levels[tempVar].name + " by " + data.levels[tempVar].author + "' style='display:block;margin-left:auto;margin-right:auto;'></button><p></p>";
                     
                     getThumb(tempVar, "https://community.5blevels.com/levels/" + data.levels[tempVar].author + "/" + data.levels[tempVar].name + "/thumbnail.png");
                     
