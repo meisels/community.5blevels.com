@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Community 5b - Levels</title>
+        <meta name="description" content="Explore the levels by the 5b Community">
+        <meta name="keywords" content="5b, bfdia, bfdia 5b, 5blevels.com, community, 5b community, bfdia 5b community, levels">
+        <link rel="icon" href="https://community.5blevels.com/favicon.ico">
+    </head>
+    <body>
+        <div id="buttons"></div>
+        <script>
+            var data;
+            var levelCount;
+            var levels;
+            fetch("https://api.gamejolt.com/api/game/v1_2/data-store/?game_id=501114&key=levels&signature=f192cefebb2ccfa4bc10b21a960fbb50")
+                .then(function (response) {
+                return response.json();
+            })
+                .then(function (myJson) {
+                data = JSON.parse(myJson.response.data);
+                levelCount = data.levels.levelCount;
+                var tempLevelCount = levelCount;
+                do {
+                    document.getElementById("buttons").innerHTML += "<button onclick='downloadLevel(" + tempLevelCount + ")'>Download <b>" + data.levels[tempLevelCount].name + "</b> by <b>" + data.levels[tempLevelCount].author + "</b><img src='https://community.5blevels.com/levels/" + data.levels[tempLevelCount].author + "/" + data.levels[tempLevelCount].name + "/thumbnail.png' style='display:block;margin-left:auto;margin-right:auto;'></button><br>"
+                    
+                    tempLevelCount--;
+                } while (tempLevelCount > 0);
+            });
+            
+            function downloadLevel(currentLevel) {
+                var lineUpTo = 1;
+                var levelToDownload;
+                do {
+                    if (lineUpTo == 1) {
+                        levelToDownload = data.levels[currentLevel].levelData[lineUpTo];
+                    } else {
+                        levelToDownload += "\r\n" + data.levels[currentLevel].levelData[lineUpTo]
+                    }
+                    lineUpTo++;
+                } while (lineUpTo <= data.levels[currentLevel].levelData.lines);
+                download(currentLevel + ".txt", levelToDownload);
+            }
+            
+            function download(filename, text) {
+                var element = document.createElement("a");
+                element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+                element.setAttribute("download", filename);
+                element.style.display = "none";
+                document.body.appendChild(element);
+                element.click();
+                document.body.removeChild(element);
+            }
+        </script>
+        <style>
+            * {
+                text-align: center;
+            }
+        </style>
+    </body>
+</html>
