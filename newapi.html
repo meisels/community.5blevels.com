@@ -19,12 +19,29 @@
                 .then(function (myJson) {
                 data = JSON.parse(myJson.response.data);
                 levelCount = data.levels.levelCount;
-                var tempLevelCount = levelCount;
+                var tempVar = levelCount;
                 do {
-                    document.getElementById("buttons").innerHTML += "<button onclick='downloadLevel(" + tempLevelCount + ")'>Download <b>" + data.levels[tempLevelCount].name + "</b> by <b>" + data.levels[tempLevelCount].author + "</b><img src='https://community.5blevels.com/levels/" + data.levels[tempLevelCount].author + "/" + data.levels[tempLevelCount].name + "/thumbnail.png' style='display:block;margin-left:auto;margin-right:auto;'></button><br>"
+                    document.getElementById("buttons").innerHTML += "<button onclick='downloadLevel(" + tempVar + ")'>Download <b>" + data.levels[tempVar].name + "</b> by <b>" + data.levels[tempVar].author + "</b><img id='" + tempVar + "' src='' style='display:block;margin-left:auto;margin-right:auto;'></button><br>";
                     
-                    tempLevelCount--;
-                } while (tempLevelCount > 0);
+                    getThumb(tempVar);
+                    
+                    function getThumb(tempVar2) {
+                        fetch("https://community.5blevels.com/levels/" + data.levels[tempVar].author + "/" + data.levels[tempVar].name + "/thumbnail.png")
+                            .then(function (response) {
+                            return response.status;
+                        })
+                            .then(function (checkFile) {
+                            if (checkFile == "200") {
+                                document.getElementById(tempVar2).src = "https://community.5blevels.com/levels/" + data.levels[tempVar2].author + "/" + data.levels[tempVar2].name + "/thumbnail.png";
+                            } else {
+                                document.getElementById(tempVar2).src = "https://img.gs/vnmzjdhghq/315x315/https://community.5blevels.com/thumbnail.png";
+                                console.log("Because the  thumbnail file wasn't found, the default thumbnail is displayed.");
+                            }
+                        });
+                    }
+                    
+                    tempVar--;
+                } while (tempVar > 0);
             });
             
             function downloadLevel(currentLevel) {
