@@ -5,17 +5,23 @@
     "levels": {
         "1": {
             "name": "Evil Horrendous Level of Evil",
-            "author": "Ari Meisels"
+            "author": "Ari Meisels",
+            "description": "An impossible level of pure evil.",
+            "difficulty": "7"
         }
     },
     "levelpacks": {
         "1": {
             "name": "5b",
-            "author": "Cary Huang"
+            "author": "Cary Huang",
+            "description": "The original 5b levelpack that started it all.",
+            "difficulty": "4"
         },
         "2": {
             "name": "Easy 5b",
-            "author": "SpencerDy"
+            "author": "SpencerDy",
+            "description": "Wait? The Companion Cube is ALIVE?!?",
+            "difficulty": "2"
         }
     }
 }
