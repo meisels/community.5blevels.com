@@ -2,3 +2,14 @@
     text-align: center;
     font-family: sans-serif;
 }
+
+#container {
+    background-color: lightgreen;
+    height: 410px;
+    width: 700px;
+    border: 15px solid gold;
+    padding: 50px;
+    margin: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
