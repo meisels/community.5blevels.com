@@ -15,13 +15,15 @@
             "name": "5b",
             "author": "Cary Huang",
             "description": "The original 5b levelpack that started it all.",
-            "difficulty": "4"
+            "difficulty": "4",
+            "isMod": "no"
         },
         "2": {
             "name": "Easy 5b",
             "author": "SpencerDy",
             "description": "Wait? The Companion Cube is ALIVE?!?",
-            "difficulty": "2"
+            "difficulty": "2",
+            "isMod": "yes"
         }
     }
 }
