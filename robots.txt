@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://community.5blevels.com/sitemap.xml
