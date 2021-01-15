@@ -56,7 +56,7 @@
                     }
                     lineUpTo++;
                 } while (lineUpTo <= data.levels[currentLevel].levelData.lines);
-                download(currentLevel + ".txt", levelToDownload);
+                download(data.levels[currentLevel].name + ".txt", levelToDownload);
             }
             
             function download(filename, text) {
