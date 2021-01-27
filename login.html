@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Community 5b</title>
+        <meta name="description" content="Login with GameJolt">
+        <meta name="keywords" content="5b, bfdia, bfdia 5b, 5blevels.com, community, 5b community, bfdia 5b community, login">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="/apikey.js"></script>
+        <script src="https://www.arimeisels.com/md5/md5.js"></script>
+        
+        <h1>GameJolt Login</h1>
+        <br>
+        <br>
+        <br>
+        <textarea id="username" class="login" cols="25" rows="1" placeholder="Username..."></textarea>
+        <br>
+        <br>
+        <br>
+        <br>
+        <textarea id="gt" class="login" cols="25" rows="1" placeholder="Game Token..."></textarea>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button id="submit" onclick="submit()" style="visibility:hidden;">Submit</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <textarea id="status" cols="25" rows="2" placeholder="Status..." readonly></textarea>
+        <script>
+            function login() {
+                fetch("https://api.gamejolt.com/api/game/v1_2/users/auth/?game_id=501114&username=" + document.getElementById("username").value + "&user_token=" + document.getElementById("gt").value + "&signature=" + MD5("https://api.gamejolt.com/api/game/v1_2/users/auth/?game_id=501114&username=" + document.getElementById("username").value + "&user_token=" + document.getElementById("gt").value + APIkey))
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    document.getElementById("status").style.visibility = "visible";
+                    if (myJson.response.success == "true") {
+                        document.getElementById("status").value = "Connected successfully!";
+                        document.getElementById("status").rows = "1";
+                        document.getElementById("submit").style.visibility = "visible";
+                    } else {
+                        document.getElementById("status").value = "Incorrect or incomplete credidentials.";
+                        document.getElementById("status").rows = "2";
+                        document.getElementById("submit").style.visibility = "hidden";
+                    };
+                });
+            };
+            function submit() {
+                localStorage.setItem("username", document.getElementById("username").value);
+                localStorage.setItem("gt", document.getElementById("gt").value);
+                window.close();
+            }
+            $("#username").on("input", function(e) {
+                var input = $(this);
+                var val = input.val();
+                
+                if (input.data("lastval") != val) {
+                    input.data("lastval", val);
+                    login();
+                }
+            });
+            $("#gt").on("input", function(e) {
+                var input = $(this);
+                var val = input.val();
+            
+                if (input.data("lastval") != val) {
+                    input.data("lastval", val);
+                    login();
+                }
+            });
+        </script>
+        <style>
+            body {
+                background-color: #2f7f6f;
+            }
+            .login {
+                background-color: #ccff00;
+                resize: none;
+                font-size: 20px;
+            }
+            #status {
+                background-color: #31d6ff;
+                resize: none;
+                visibility: hidden;
+            }
+        </style>
+    </body>
+</html>
