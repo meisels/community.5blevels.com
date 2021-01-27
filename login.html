@@ -33,6 +33,10 @@
         <br>
         <textarea id="status" cols="25" rows="2" placeholder="Status..." readonly></textarea>
         <script>
+            document.getElementById("username").value = localStorage.getItem("username");
+            document.getElementById("gt").value = localStorage.getItem("gt");
+            login();
+            
             function login() {
                 fetch("https://api.gamejolt.com/api/game/v1_2/users/auth/?game_id=501114&username=" + document.getElementById("username").value + "&user_token=" + document.getElementById("gt").value + "&signature=" + MD5("https://api.gamejolt.com/api/game/v1_2/users/auth/?game_id=501114&username=" + document.getElementById("username").value + "&user_token=" + document.getElementById("gt").value + APIkey))
                 .then(function (response) {
@@ -51,11 +55,13 @@
                     };
                 });
             };
+            
             function submit() {
                 localStorage.setItem("username", document.getElementById("username").value);
                 localStorage.setItem("gt", document.getElementById("gt").value);
                 window.close();
-            }
+            };
+            
             $("#username").on("input", function(e) {
                 var input = $(this);
                 var val = input.val();
@@ -65,6 +71,7 @@
                     login();
                 }
             });
+            
             $("#gt").on("input", function(e) {
                 var input = $(this);
                 var val = input.val();
