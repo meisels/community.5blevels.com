@@ -16,6 +16,8 @@
         <br>
         <br>
         <button id="beam" onclick="beam()" style="visibility:hidden;">Beam to Community 5b (requires you to be logged in on Community 5b)</button>
+        <br>
+        <p id="afterClick" style="visibility:hidden">Didn't work? Click <a href="https://gamejolt.com/get/build?game=501114&build=969469" target="_blank">here</a> to get the full version of Community 5b!</p>
         <a href="" onclick="window.open('/login.html', 'login', 'height = 500, width = 500');" style="position:absolute;float:right;top:0;right:0;"><img src="https://s.gjcdn.net/assets/gamejolt-bolt-dark-4x.770f6837.png"></a>
         <script>
             document.getElementsByTagName("title")[0].innerHTML = decodeURI(window.location.pathname.split("/")[3]) + " by " + decodeURI(window.location.pathname.split("/")[2]);
@@ -33,6 +35,7 @@
                     document.getElementById("beam").style.visibility = "visible";
                     if (myJson.response.success == "true") {
                         window.location = "com5b:\\";
+                        document.getElementById("afterClick").style.visibility = "visible";
                     } else {
                         alert("Error 28915783156831758913786673673: You are either not logged in or your account details have changed. In either case, you should not have been able to press the 'beam' button and see this message.");
                     };
