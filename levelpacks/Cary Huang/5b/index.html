@@ -18,8 +18,8 @@
         <button id="beam" onclick="beam()" style="visibility:hidden;">Beam to Community 5b (requires you to be logged in on Community 5b)</button>
         <a href="" onclick="window.open('/login.html', 'login', 'height = 500, width = 500');" style="position:absolute;float:right;top:0;right:0;"><img src="https://s.gjcdn.net/assets/gamejolt-bolt-dark-4x.770f6837.png"></a>
         <script>
-            document.getElementsByTagName("title")[0].innerHTML = window.location.pathname.split("/")[3] + " by " + decodeURI(window.location.pathname.split("/")[2]);
-            document.getElementsByTagName("h1")[0].innerHTML = window.location.pathname.split("/")[3] + " by " + decodeURI(window.location.pathname.split("/")[2]);
+            document.getElementsByTagName("title")[0].innerHTML = decodeURI(window.location.pathname.split("/")[3]) + " by " + decodeURI(window.location.pathname.split("/")[2]);
+            document.getElementsByTagName("h1")[0].innerHTML = decodeURI(window.location.pathname.split("/")[3]) + " by " + decodeURI(window.location.pathname.split("/")[2]);
             document.getElementsByName("keywords")[0].content += ", " + window.location.pathname.split("/")[3] + ", " + decodeURI(window.location.pathname.split("/")[2]) + ", " + window.location.pathname.split("/")[3] + " by " + decodeURI(window.location.pathname.split("/")[2]);
             if (localStorage.getItem("username") && localStorage.getItem("gt")) {
                 document.getElementById("beam").style.visibility = "visible";
