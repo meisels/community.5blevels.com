@@ -25,7 +25,7 @@
                 document.getElementById("beam").style.visibility = "visible";
             };
             function beam() {
-                fetch("https://api.gamejolt.com/api/game/v1_2/data-store/set/?game_id=501114&key=" + localStorage.getItem("username") + "_beam&data=1&signature=" + MD5("https://api.gamejolt.com/api/game/v1_2/data-store/set/?game_id=501114&key=" + localStorage.getItem("username") + "_beam&data=2" + APIkey))
+                fetch("https://api.gamejolt.com/api/game/v1_2/data-store/set/?game_id=501114&key=" + localStorage.getItem("username") + "_beam&data=2&signature=" + MD5("https://api.gamejolt.com/api/game/v1_2/data-store/set/?game_id=501114&key=" + localStorage.getItem("username") + "_beam&data=2" + APIkey))
                 .then(function (response) {
                     return response.json();
                 })
