@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta name="description" content="The 5b level modding community!">
+        <meta name="keywords" content="5b, bfdia, bfdia 5b, 5blevels.com, community, 5b community, bfdia 5b community">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/style.css">
+        <script src="/apikey.js"></script>
+        <script src="https://www.arimeisels.com/md5/md5.js"></script>
+    </head>
+    <body>        
+        <h1></h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button id="beam" onclick="beam()" style="visibility:hidden;">Beam to Community 5b (requires you to be logged in on Community 5b)</button>
+        <a href="" onclick="window.open('/login.html', 'login', 'height = 500, width = 500');" style="position:absolute;float:right;top:0;right:0;"><img src="https://s.gjcdn.net/assets/gamejolt-bolt-dark-4x.770f6837.png"></a>
+        <script>
+            document.getElementsByTagName("title")[0].innerHTML = window.location.pathname.split("/")[3] + " by " + decodeURI(window.location.pathname.split("/")[2]);
+            document.getElementsByTagName("h1")[0].innerHTML = window.location.pathname.split("/")[3] + " by " + decodeURI(window.location.pathname.split("/")[2]);
+            document.getElementsByName("keywords")[0].content += ", " + window.location.pathname.split("/")[3] + ", " + decodeURI(window.location.pathname.split("/")[2]) + ", " + window.location.pathname.split("/")[3] + " by " + decodeURI(window.location.pathname.split("/")[2]);
+            if (localStorage.getItem("username") && localStorage.getItem("gt")) {
+                document.getElementById("beam").style.visibility = "visible";
+            };
+            function beam() {
+                fetch("https://api.gamejolt.com/api/game/v1_2/data-store/set/?game_id=501114&key=" + localStorage.getItem("username") + "_beam&data=1&signature=" + MD5("https://api.gamejolt.com/api/game/v1_2/data-store/set/?game_id=501114&key=" + localStorage.getItem("username") + "_beam&data=1" + APIkey))
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    document.getElementById("beam").style.visibility = "visible";
+                    if (myJson.response.success == "true") {
+                        window.location = "com5b:\\";
+                    } else {
+                        alert("Error 28915783156831758913786673673: You are either not logged in or your account details have changed. In either case, you should not have been able to press the 'beam' button and see this message.");
+                    };
+                });
+            };
+        </script>
+    </body>
+</html>
