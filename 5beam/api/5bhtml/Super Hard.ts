@@ -1,4 +1,4 @@
-export default{
+{
 	name: "Super Hard",
 	author: "Ari Meisels",
 	description: "If you beat this, I am impressed. Of course, I beat it a long time ago (because I made it), but still! Also, this level is or will be part of one of my levelpacks at 5blevels.com or arimeisels.gamejolt.io/5b so check them out there.",
